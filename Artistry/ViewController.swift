@@ -11,9 +11,21 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        configureNavigationBar()
     }
-
-
+    
+    private func configureNavigationBar() {
+        let myColor = UIColor(red: 118.0/255.0, green: 158.0/255.0, blue: 71.0/255.0, alpha: 1.0)
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = myColor
+        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white,
+                                               .font: UIFont(name: "Optima-Bold", size: 46)!]
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.white,
+                                          .font: UIFont(name: "Optima-Bold", size: 24)!]
+        
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.compactAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+    }
 }
 

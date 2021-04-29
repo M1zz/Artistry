@@ -65,17 +65,27 @@
             </objects>
             <point key="canvasLocation" x="1926" y="78"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Main View Controller-->
         <scene sceneID="22w-6g-vGt">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2k7-0u-H1G" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2k7-0u-H1G" customClass="MainViewController" customModule="Artistry" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="whx-oZ-uFb">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="104"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" type="system" pointSize="46"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7ed-Zc-Fgq">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
+                        <outlet property="navigationBar" destination="whx-oZ-uFb" id="A7m-4W-bxk"/>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Upc-0G-X7T"/>
                     </connections>
                 </navigationController>
