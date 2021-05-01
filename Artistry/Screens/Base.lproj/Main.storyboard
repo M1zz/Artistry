@@ -27,9 +27,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="Pb4-xD-NYk" kind="show" id="1Nm-7b-ejZ"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -52,21 +49,36 @@
             </objects>
             <point key="canvasLocation" x="1013.0434782608696" y="78.348214285714278"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="joF-PI-nHz">
             <objects>
-                <viewController id="Pb4-xD-NYk" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fYA-db-b2o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="DetailViewController" id="Pb4-xD-NYk" customClass="DetailViewController" customModule="Artistry" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kvZ-te-ouD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6mC-Df-5uY">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="7oQ-d3-u1Z"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6mC-Df-5uY" firstAttribute="leading" secondItem="7oQ-d3-u1Z" secondAttribute="leading" id="Hc3-fX-cjg"/>
+                            <constraint firstItem="6mC-Df-5uY" firstAttribute="top" secondItem="7oQ-d3-u1Z" secondAttribute="top" id="IOz-Sl-wBk"/>
+                            <constraint firstItem="7oQ-d3-u1Z" firstAttribute="bottom" secondItem="6mC-Df-5uY" secondAttribute="bottom" id="YU2-Hf-679"/>
+                            <constraint firstItem="7oQ-d3-u1Z" firstAttribute="trailing" secondItem="6mC-Df-5uY" secondAttribute="trailing" id="tHk-hr-pdB"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="DU5-zl-oCH"/>
+                    <connections>
+                        <outlet property="tableView" destination="6mC-Df-5uY" id="v4K-SA-Xe6"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fYA-db-b2o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1926" y="78"/>
+            <point key="canvasLocation" x="1930" y="78"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="22w-6g-vGt">

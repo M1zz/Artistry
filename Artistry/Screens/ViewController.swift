@@ -9,6 +9,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    let artists = Artist.artistsFromBundle()
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -29,6 +31,11 @@ class ViewController: UIViewController {
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.compactAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        navigationController?.navigationBar.tintColor = .white
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     private func configureTableView() {
@@ -44,12 +51,27 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return artists.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MainTableViewCell") as! MainTableViewCell
+        
+        let artist = artists[indexPath.row]
+        cell.setDisplay(for: artist)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        
+        let destinationViewController = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+        let artist = artists[indexPath.row]
+        destinationViewController.selectedArtist = artist
+        
+        navigationController?.pushViewController(destinationViewController, animated: true)
+
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 

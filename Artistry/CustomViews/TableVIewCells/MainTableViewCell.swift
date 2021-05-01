@@ -9,15 +9,20 @@ import UIKit
 
 class MainTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var artistImageView: UIImageView!
+    @IBOutlet weak var artistNameLabel: UILabel!
+    @IBOutlet weak var artistDescriptionTextView: UITextView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        artistNameLabel.backgroundColor = .systemOrange
+        artistNameLabel.textColor = .white
+        artistDescriptionTextView.textContainerInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func setDisplay(for artist: Artist) {
+        artistImageView.image = artist.image
+        artistNameLabel.text = artist.name
+        artistDescriptionTextView.text = artist.bio
     }
-    
 }
