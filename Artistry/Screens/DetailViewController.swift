@@ -15,8 +15,9 @@ final class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.prefersLargeTitles = false
-        navigationController?.title = "asdf"
+        navigationItem.largeTitleDisplayMode = .never
+        //navigationController?.navigationBar.prefersLargeTitles = false
+        title = selectedArtist.name
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -28,7 +29,7 @@ final class DetailViewController: UIViewController {
     }
 }
 
-extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
+extension DetailViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return selectedArtist.works.count
     }
@@ -38,7 +39,21 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
         let artistWorks = selectedArtist.works[indexPath.row]
         cell.setDisplay(for: artistWorks)
         
-        
         return cell
+    }
+}
+
+extension DetailViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) as? DetailTableViewCell else { return }
+
+        selectedArtist.works[indexPath.row].isExpanded.toggle()
+        
+        cell.setDisplay(for: selectedArtist.works[indexPath.row])
+
+        tableView.beginUpdates()
+        tableView.endUpdates()
+        tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

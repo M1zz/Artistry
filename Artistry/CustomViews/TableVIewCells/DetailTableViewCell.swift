@@ -10,19 +10,16 @@ import UIKit
 final class DetailTableViewCell: UITableViewCell {
 
     @IBOutlet private weak var DetailImageVIew: UIImageView!
+    @IBOutlet private weak var artnameLabel: UILabel!
+    @IBOutlet private weak var descriptionLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
     func setDisplay(for artist: Work) {
         DetailImageVIew.image = artist.image
+        artnameLabel.text = artist.title
+        descriptionLabel.text = artist.isExpanded ? artist.info : "Select For More Info >"
     }
 }
