@@ -53,7 +53,6 @@ struct Artist {
         } catch {
             return artists
         }
-        
         return artists
     }
 }

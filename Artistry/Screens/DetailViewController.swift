@@ -46,9 +46,7 @@ extension DetailViewController: UITableViewDelegate {
 extension DetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) as? DetailTableViewCell else { return }
-
         selectedArtist.works[indexPath.row].isExpanded.toggle()
-        
         cell.setDisplay(for: selectedArtist.works[indexPath.row])
 
         tableView.beginUpdates()
